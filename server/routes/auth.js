@@ -8,7 +8,6 @@ const {
 } = require('../controllers/authController');
 const { protect } = require('../middleware/auth');
 
-// Validation rules
 const registerValidation = [
   body('name', 'Name is required').notEmpty(),
   body('email', 'Please enter a valid email').isEmail(),
@@ -21,13 +20,8 @@ const loginValidation = [
   body('password', 'Password is required').notEmpty(),
 ];
 
-// @route   POST /api/auth/register
 router.post('/register', registerValidation, registerUser);
-
-// @route   POST /api/auth/login
 router.post('/login', loginValidation, loginUser);
-
-// @route   GET /api/auth/me
 router.get('/me', protect, getUserProfile);
 
 module.exports = router;
