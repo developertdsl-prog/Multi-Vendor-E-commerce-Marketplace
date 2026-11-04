@@ -7,6 +7,9 @@ import Register from './pages/Register';
 import VendorRegister from './pages/VendorRegister';
 import VendorDashboard from './pages/VendorDashboard';
 import StoreProfile from './pages/StoreProfile';
+import ProductList from './pages/ProductList';
+import ProductDetails from './pages/ProductDetails';
+import AddProduct from './pages/AddProduct';
 
 const Loading = () => <div className="flex items-center justify-center min-h-screen">Loading...</div>;
 
@@ -30,6 +33,8 @@ const AppWithAuth = () => {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/products" element={<ProductList />} />
+        <Route path="/products/:id" element={<ProductDetails />} />
         <Route
           path="/vendor-register"
           element={
@@ -51,6 +56,14 @@ const AppWithAuth = () => {
           element={
             <VendorRoute>
               <StoreProfile />
+            </VendorRoute>
+          }
+        />
+        <Route
+          path="/add-product"
+          element={
+            <VendorRoute>
+              <AddProduct />
             </VendorRoute>
           }
         />
