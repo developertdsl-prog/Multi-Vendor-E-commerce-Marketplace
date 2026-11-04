@@ -7,7 +7,6 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Navbar */}
       <nav className="bg-indigo-600 px-4 py-3 shadow-md">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <Link to="/" className="text-white text-xl font-bold">
@@ -40,7 +39,6 @@ const Home = () => {
         </div>
       </nav>
 
-      {/* Hero */}
       <header className="bg-indigo-50 py-12 px-4 text-center">
         <h1 className="text-4xl font-bold text-indigo-900 mb-4">
           Multi-Vendor E-commerce Marketplace
@@ -61,9 +59,14 @@ const Home = () => {
         {user && (
           <div className="space-y-2">
             {user.role === 'vendor' && (
-              <Link to="/vendor-dashboard" className="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg font-semibold inline-block transition">
-                Vendor Dashboard
-              </Link>
+              <>
+                <Link to="/vendor-dashboard" className="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg font-semibold inline-block transition">
+                  Vendor Dashboard
+                </Link>
+                <Link to="/add-product" className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold inline-block transition ml-3">
+                  Add Product
+                </Link>
+              </>
             )}
             {user.role === 'admin' && (
               <Link to="/admin-dashboard" className="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg font-semibold inline-block transition">
@@ -79,7 +82,6 @@ const Home = () => {
         )}
       </header>
 
-      {/* Features */}
       <section className="py-12 px-4">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-2xl font-bold text-gray-900 text-center mb-8">Features</h2>

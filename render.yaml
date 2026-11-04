@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: multivendor-marketplace-api
+    env: node
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 5000
+      - key: MONGO_URI
+        fromDatabase:
+          name: multivendor-mongodb
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRE
+        value: 7d
+
+databases:
+  - name: multivendor-mongodb
+    plan: free

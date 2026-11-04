@@ -7,21 +7,6 @@ const Register = () => {
   const { register } = useAuth();
   const navigate = useNavigate();
 
-  const fields = [
-    { id: 'name', label: 'Full name', type: 'text' },
-    { id: 'email', label: 'Email address', type: 'email' },
-    { id: 'password', label: 'Password', type: 'password' },
-    {
-      id: 'role',
-      label: 'Register as',
-      type: 'select',
-      options: [
-        { value: 'customer', label: 'Customer' },
-        { value: 'vendor', label: 'Vendor' },
-      ],
-    },
-  ];
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(null);
@@ -63,36 +48,56 @@ const Register = () => {
         )}
 
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-          {fields.map((field) => (
-            <div key={field.id} className="space-y-1">
-              <label htmlFor={field.id} className="block text-sm font-medium text-gray-700">
-                {field.label}
-              </label>
-              {field.type === 'select' ? (
-                <select
-                  id={field.id}
-                  name={field.id}
-                  required
-                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                >
-                  {field.options.map((opt) => (
-                    <option key={opt.value} value={opt.value}>
-                      {opt.label}
-                    </option>
-                  ))}
-                </select>
-              ) : (
-                <input
-                  id={field.id}
-                  name={field.id}
-                  type={field.type}
-                  required
-                  className="appearance-none relative block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                />
-              )}
-            </div>
-          ))}
-
+          <div className="space-y-1">
+            <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+              Full name
+            </label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              required
+              className="appearance-none relative block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+            />
+          </div>
+          <div className="space-y-1">
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+              Email address
+            </label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              className="appearance-none relative block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+            />
+          </div>
+          <div className="space-y-1">
+            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+              Password
+            </label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              required
+              className="appearance-none relative block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+            />
+          </div>
+          <div className="space-y-1">
+            <label htmlFor="role" className="block text-sm font-medium text-gray-700">
+              Register as
+            </label>
+            <select
+              id="role"
+              name="role"
+              required
+              className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+            >
+              <option value="customer">Customer</option>
+              <option value="vendor">Vendor</option>
+            </select>
+          </div>
           <div>
             <button type="submit" className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
               Create account
